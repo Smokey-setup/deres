@@ -1,0 +1,42 @@
+[package]
+name = "deres"
+version = "1.0.0"
+edition = "2021"
+authors = ["Your Name <you@domain.com>"]
+description = "A runtime engine for secure, platform-agnostic, immortal data logic processing."
+readme = "README.md"
+license = "MIT"
+
+# Ensure the executable links cleanly as a single standalone binary
+[[bin]]
+name = "deres"
+path = "main.rs"
+
+[dependencies]
+# Serialization engine: Essential for dynamic, language-agnostic data injection
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Cryptographic engine: Hardened hashing primitives for data capsule signatures
+sha2 = "0.10"
+
+# Low-level atomic time tracking for logical CPU instruction loops (Independent of system clock)
+chrono = { version = "0.4", default-features = false, features = ["alloc"] }
+
+[profile.dev]
+opt-level = 0
+debug = true
+panic = "unwind"
+incremental = true
+
+[profile.release]
+# Maximize runtime execution and performance
+opt-level = 3
+# Perform Link-Time Optimization globally across all compiled modules to optimize dead code paths
+lto = true
+# Strip all debug symbols and structural metadata to reduce memory footprints and secure against binary reverse-engineering
+strip = "symbols"
+# Force panic-to-abort to immediately destroy the application state during an unhandled fault, leaving no room for memory dumps
+panic = "abort"
+# Consolidate memory blocks into a single execution unit to prevent cache locality misses
+codegen-units = 1
