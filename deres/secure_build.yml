@@ -1,0 +1,29 @@
+# Deres Flat Continuous Attestation Framework
+name: Deres Flat Verification Matrix
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  audit_and_verify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone Repository Assets
+      uses: actions/checkout@v4
+
+    - name: Initialize Bare-Metal Rust Toolchain
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        components: clippy
+
+    - name: Run Strict Linting and Code Integrity Audit
+      run: cargo clippy --all-targets -- -D warnings
+
+    - name: Execute Adversarial Threat Injection Suite
+      run: |
+        chmod +x check.sh
+        ./check.sh
+        cargo run --release

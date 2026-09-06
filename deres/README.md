@@ -2,7 +2,7 @@
 
 Software today breaks constantly because it is tightly bound to changing operating systems, fragile third-party updates, and hardware targets that shift every few years. Deres is a low-level runtime engine built to solve this problem from the bottom up. 
 
-Instead of compiling source code into environment-specific machine bytes that slowly degrade over time, Deres distills software into cryptographically signed mathematical blueprints. The engine sits directly above physical hardware, translating these blueprints into native machine instructions on the fly. It is designed to act like a living organism—isolating threats dynamically, enforcing strict data rules, and adapting to changes without crashing the system.
+Instead of compiling source code into environment-specific machine bytes that slowly degrade over time, Deres distills software into cryptographically signed mathematical blueprints. The engine sits directly above physical hardware, translating these blueprints into native machine instructions on the fly. It is designed to act like a living ckse;isolating threats dynamically, enforcing strict data rules, and adapting to changes without crashing the system.
 
 ---
 
